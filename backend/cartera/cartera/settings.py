@@ -31,14 +31,22 @@ SECRET_KEY = 'django-insecure-dn%*fd^g7bq5-1r9hew!ou02n$*$ev@tc=+4y3l^ul&+fzmxac
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# CORREGIR A FUTURO
+# ALLOWED_HOSTS = ['localhost','https://3000-mcamachog1-carteradecli-yrzhs1cplv9.ws-us80.gitpod.io/']
+# CORS_ORIGIN_ALLOW_ALL = False
+# CORS_ORIGIN_WHITELIST = (
+#   'http://localhost:3000',
+# )
 
+ALLOWED_HOSTS=['*']
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
 INSTALLED_APPS = [
 
     'accounts',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,6 +56,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
