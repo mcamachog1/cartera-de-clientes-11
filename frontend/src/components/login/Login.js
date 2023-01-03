@@ -25,6 +25,23 @@ function Login () {
       password: credenciales.password
     };
     console.log("Login " + userData.username + " " + userData.password);
+
+		const getToDo = async () =>{
+      const api_route = "https://8000-mcamachog1-carteradecli-yrzhs1cplv9.ws-us80.gitpod.io"
+			let response = await fetch(api_route,{
+				headers:{
+					"Content-Type":"application/json"
+				},
+				method:"GET",
+
+			})
+			let data = await response.json()
+			console.log('Voy a imprimir data')
+      console.log(data)
+	  }
+    getToDo()    
+
+
   };	
 
 	return (
