@@ -11,9 +11,16 @@ from django.views.decorators.csrf import csrf_exempt
 def index(request):
 	return HttpResponse('Hola!!')
 	
-
-
+# PREGUNTAR PARA MEJORAR
+@csrf_exempt
 def saludoApi(request):
-	print('Llamada desde la API')
-# return JsonResponse()
-	return JsonResponse({"message": "Email sent successfully."}, status=201)
+	print ("El request es: ...")
+	print (request.method)
+	if request.method == "POST":
+		credenciales = json.loads(request.body)
+		print('Las credenciales son:')
+		print(credenciales)
+		return JsonResponse({"message": "Se recibió un POST."}, status=201)
+	if request.method == "PUT":
+		return JsonResponse({"message": "Se recibió un PUT."}, status=201)		
+	return JsonResponse({"message": "Se recibió otra cosa que no es POST."}, status=201)

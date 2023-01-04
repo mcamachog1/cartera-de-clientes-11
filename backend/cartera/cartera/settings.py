@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-dn%*fd^g7bq5-1r9hew!ou02n$*$ev@tc=+4y3l^ul&+fzmxac
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# CORREGIR A FUTURO
+# PREGUNTAR PARA MEJORAR
 # ALLOWED_HOSTS = ['localhost','https://3000-mcamachog1-carteradecli-yrzhs1cplv9.ws-us80.gitpod.io/']
 # CORS_ORIGIN_ALLOW_ALL = False
 # CORS_ORIGIN_WHITELIST = (
@@ -69,7 +69,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'cartera.urls'
 
 # #
-# CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io']
+#CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io']
 
 TEMPLATES = [
     {

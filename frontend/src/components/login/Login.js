@@ -27,12 +27,14 @@ function Login () {
     console.log("Login " + userData.username + " " + userData.password);
 
 		const getToDo = async () =>{
-      const api_route = "https://8000-mcamachog1-carteradecli-yrzhs1cplv9.ws-us80.gitpod.io/saludo-api"
+      // PREGUNTAR PARA MEJORAR
+      const api_route = "https://8000-mcamachog1-carteradecli-yrzhs1cplv9.ws-us81.gitpod.io/saludo-api"
 			let response = await fetch(api_route,{
 				headers:{
 					"Content-Type":"application/json"
 				},
-				method:"GET",
+				method:"POST",
+        body: JSON.stringify(credenciales)
 
 			})
 			let data = await response.json()
