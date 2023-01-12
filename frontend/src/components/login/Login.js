@@ -15,7 +15,6 @@ function Login () {
 	const [credenciales, setCredenciales] = useState( {username: "", password: ""});	
 
 	const onChange = (event) => {
-		console.log('entro a cambio en input field')
     setCredenciales({ ...credenciales, [event.target.name]: event.target.value });
   };
 
@@ -26,9 +25,9 @@ function Login () {
     };
     console.log("Login " + userData.username + " " + userData.password);
 
-		const getToDo = async () =>{
+		const login = async () =>{
       // PREGUNTAR PARA MEJORAR
-      const api_route = "https://8000-mcamachog1-carteradecli-yrzhs1cplv9.ws-us81.gitpod.io/saludo-api"
+      const api_route = "https://8000-mcamachog1-carteradecli-yrzhs1cplv9.ws-us82.gitpod.io/saludo-api"
 			let response = await fetch(api_route,{
 				headers:{
 					"Content-Type":"application/json"
@@ -40,8 +39,13 @@ function Login () {
 			let data = await response.json()
 			console.log('Voy a imprimir data')
       console.log(data)
+      console.log(response.status)
+      if (response.status === 201) {
+        console.log('Ir a Dashboard')
+        return(<Link to="/dashboard">Dashboard</Link>)
+      }
 	  }
-    getToDo()    
+    login()    
 
 
   };	
@@ -53,11 +57,11 @@ function Login () {
             <h1>Login</h1>
             <Form>
               <Form.Group controlId="usernameId">
-                <Form.Label>User name</Form.Label>
+                <Form.Label>Email</Form.Label>
                 <Form.Control
                   type="text"
                   name="username"
-                  placeholder="Enter user name"
+                  placeholder="Enter user email"
                   value={credenciales.username}
                   onChange={onChange}
                 />

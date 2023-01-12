@@ -31,6 +31,15 @@ SECRET_KEY = 'django-insecure-dn%*fd^g7bq5-1r9hew!ou02n$*$ev@tc=+4y3l^ul&+fzmxac
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
+
 # PREGUNTAR PARA MEJORAR
 # ALLOWED_HOSTS = ['localhost','https://3000-mcamachog1-carteradecli-yrzhs1cplv9.ws-us80.gitpod.io/']
 # CORS_ORIGIN_ALLOW_ALL = False
@@ -47,6 +56,8 @@ INSTALLED_APPS = [
 
     'accounts',
     'corsheaders',
+    'rest_framework',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -141,3 +152,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#
+CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io','http://*.gitpod.io']
+
+AUTH_USER_MODEL = 'accounts.User'
